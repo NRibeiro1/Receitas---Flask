@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/cadastro.css">
+  <link rel="shortcut icon" href="/static/imagens/lista.png" type="image/x-icon" />
+  <title>Cadastro de Receita</title>
+</head>
+<body>
+  <div class="grid">
+    <div class="label-receita">
+      <h1>Cadastre aqui sua receita!</h1>
+    </div>
+
+    <a href="{{ url_for('lista') }}">
+      <button type="button" id="receitas">Ver Receitas Cadastradas</button>
+    </a>
+
+    <div class="forms">
+      <form action="{{ url_for('cadastro') }}" method="POST">
+        <div class="form-group">
+          <h3>Nome do Prato:</h3>
+          <input type="text" name="nome" required>
+        </div>
+
+        <div class="form-group">
+          <h3>Tipo:</h3>
+          <input type="text" name="tipo" placeholder="salgada/doce" required>
+        </div>
+
+        <div class="form-group">
+          <h3>Origem:</h3>
+          <input type="text" name="origem" placeholder="país/região" required>
+        </div>
+
+        <div class="form-group">
+          <h3>Ingredientes:</h3>
+          <input type="text" name="ingredientes" required>
+        </div>
+
+        <div class="form-group">
+          <h3>Modo de preparo:</h3>
+          <input type="text" name="modo" required>
+        </div>
+
+        <div class="form-group">
+          <button id="cadastrar" type="submit">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

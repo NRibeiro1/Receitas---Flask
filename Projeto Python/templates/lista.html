@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receitas</title>
+  <link rel="stylesheet" href="/static/css/lista.css">
+  <link rel="shortcut icon" href="/static/imagens/icon.svg" type="image/x-icon" />
+</head>
+<body>
+  <div class="label-receitas">
+    <h1>Receitas Cadastradas</h1>
+  </div>
+
+  <section class="receitas-lista">
+    {% for receita in receitas %}
+    <div class="mini-card">
+      <div class="linha">
+        <div><strong>ID:</strong> {{ receita.id }}</div>
+        <div><strong>Nome do Prato:</strong> {{ receita.nome }}</div>
+      </div>
+      <div class="linha">
+        <div><strong>Tipo:</strong> {{ receita.tipo }}</div>
+        <div><strong>Origem:</strong> {{ receita.origem }}</div>
+      </div>
+      <div class="linha">
+        <div><strong>Ingredientes:</strong> {{ receita.ingredientes }}</div>
+        <div><strong>Modo de preparo:</strong> {{ receita.modo_preparo }}</div>
+      </div>
+      <div class="actions">
+        <a href="{{ url_for('excluir', id=receita.id) }}">Excluir</a>
+        <a href="{{ url_for('atualizar', id=receita.id) }}">Atualizar</a>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <a id="cadastro" href="{{ url_for('cadastrar') }}">Cadastrar nova receita</a>
+</body>
+</html>
